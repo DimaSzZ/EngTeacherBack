@@ -6,7 +6,141 @@
     <projectFile profileName="https">EngTeacher/EngTeacher.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cae33f44-2c41-498e-8cb1-7c2762ef8db6" name="Changes" comment="" />
+    <list default="true" id="cae33f44-2c41-498e-8cb1-7c2762ef8db6" name="Changes" comment="Переделал модель бд, реализовал инфраструктуру с дб контекстом, сделал тетсовую реализацию чата через Signal R в application и прописываю APiю">
+      <change afterPath="$PROJECT_DIR$/Application/Behaivors/ValidationBehavior.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/DependencyInjection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Exceptions/ValidationRequestException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/SignalR/IMessageObserver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/SignalR/MessageHub.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/SignalR/MessageObservable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/SignalR/MessageObserver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/SignalR/NewMessageEventArgs.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Validators/UserPasswordValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Accessors/IUserAccessor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Repositories/IChatRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Repositories/ICommentRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Repositories/ICourseRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Repositories/IDictionaryRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Repositories/IGroupRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Repositories/ILessonRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Repositories/ILikeRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Repositories/IMessageRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Repositories/IPostRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Repositories/IRefreshTokenRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Repositories/ITaskRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Repositories/ITestRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Repositories/IUserRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Storages/ISupabaseStorage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Utils/PasswordHasher/IPasswordHasher.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Utils/Tokens/IAccessTokenService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Utils/Tokens/IAuthenticateService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Utils/Tokens/IRefreshTokenService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Utils/Tokens/ITokenGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Utils/Tokens/ITokenService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Chat/Chat.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Chat/ChatDetail.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Comment/CourseMiniature.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Course/CourseDetail.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Course/CourseMiniature.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Dictionary/DictionaryMiniature.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Group/GroupMiniature.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Lessons/LessonMiniature.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Like/LikeMiniature.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Message/Message.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Message/MessageMiniature.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Post/PostDetail.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Post/PostMiniature.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Task/TaskMiniature.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/Test/TestMiniature.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Models/User/UserMiniature.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Settings/Storages/SupabaseSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Settings/Utils/PasswordHasher/HashingSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Settings/Utils/Tokens/JwtSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Utils/File/IFileUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Utils/Tokens/AuthenticateResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Utils/Tokens/GenerateTokenResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EngTeacher.Api/Controllers/Auth/AuthController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EngTeacher.Api/Controllers/BaseController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EngTeacher.Api/Swagger/SwaggerAuthorizationFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Accessors/UserAccessor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/DependencyInjection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Extensions/FormFileExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Parsistence/SupabaseDbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Repositories/ChatRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Repositories/CommentRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Repositories/CourseRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Repositories/DictionaryRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Repositories/GroupRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Repositories/LessonRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Repositories/LikeRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Repositories/MessageRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Repositories/PostRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Repositories/RefreshTokenRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Repositories/TaskRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Repositories/TestRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Repositories/UserRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Storages/SupabaseStorage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Utils/File/FileUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Utils/PasswordHasher/PasswordHasher.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Utils/Tokens/AccessTokenService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Utils/Tokens/AuthenticateService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Utils/Tokens/RefreshTokenService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/Utils/Tokens/TokenGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EngTeacher/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EngTeacher/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/obj/Application.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Application.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/obj/Application.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Application.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/obj/Application.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Application.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Models/Admin/Admin.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Models/Comment/Comment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Models/Comment/Comment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Models/Course/Course.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Models/Course/Course.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Models/Dictionary/Dictionary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Models/Dictionary/Dictionary.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Models/Group/Group.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Models/Group/Group.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Models/Lessons/Lesson.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Models/Lessons/Lesson.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Models/Like/Like.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Models/Like/Like.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Models/Post/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Models/Post/Post.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Models/RefreshToken/RefreshToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Models/RefreshToken/RefreshToken.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Models/Task/Task.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Models/Task/Task.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Models/Test/Test.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Models/Test/Test.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Models/User/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Models/User/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EngTeacher.Api/EngTeacher.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/EngTeacher.Api/EngTeacher.Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EngTeacher.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/EngTeacher.Api/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EngTeacher.Api/obj/Debug/net7.0/EngTeacher.Api.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EngTeacher.Api/obj/Debug/net7.0/EngTeacher.Api.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EngTeacher.Api/obj/Debug/net7.0/EngTeacher.Api.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EngTeacher.Api/obj/Debug/net7.0/EngTeacher.Api.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EngTeacher.Api/obj/EngTeacher.Api.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/EngTeacher.Api/obj/EngTeacher.Api.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EngTeacher.Api/obj/EngTeacher.Api.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/EngTeacher.Api/obj/EngTeacher.Api.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EngTeacher.Api/obj/EngTeacher.Api.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/EngTeacher.Api/obj/EngTeacher.Api.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EngTeacher.Api/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/EngTeacher.Api/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EngTeacher.Api/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EngTeacher.Api/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EngTeacher.Api/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/EngTeacher.Api/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EngTeacher.Api/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/EngTeacher.Api/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/obj/Debug/net7.0/infrastructure.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/obj/Debug/net7.0/infrastructure.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/obj/Debug/net7.0/infrastructure.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/obj/Debug/net7.0/infrastructure.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/obj/infrastructure.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/obj/infrastructure.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/obj/infrastructure.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/obj/infrastructure.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/obj/infrastructure.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/obj/infrastructure.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/obj/rider.project.restore.info" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +149,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2OrjnExLeQUYKIdqDyyfZX10blx" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,7 +173,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.EngTeacher: IIS Express">
+  <component name="RunManager" selected=".NET Launch Settings Profile.EngTeacher: https">
     <configuration name="EngTeacher: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/EngTeacher.Api/EngTeacher.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -92,15 +229,35 @@
       <option name="presentableId" value="Default" />
       <updated>1682325763381</updated>
       <workItem from="1682325765698" duration="9529000" />
-      <workItem from="1682354194471" duration="2347000" />
+      <workItem from="1682354194471" duration="8090000" />
+      <workItem from="1682446584489" duration="3852000" />
+      <workItem from="1682523325999" duration="5911000" />
+      <workItem from="1682699833768" duration="7924000" />
+      <workItem from="1682788844037" duration="1278000" />
+      <workItem from="1682931549692" duration="4269000" />
+      <workItem from="1682953313099" duration="10641000" />
+      <workItem from="1683050979616" duration="6972000" />
+      <workItem from="1683101082897" duration="7882000" />
     </task>
+    <task id="LOCAL-00001" summary="Identity Model">
+      <created>1682357595731</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682357595731</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Identity Model" />
+    <MESSAGE value="Переделал модель бд, реализовал инфраструктуру с дб контекстом, сделал тетсовую реализацию чата через Signal R в application и прописываю APiю" />
+    <option name="LAST_COMMIT_MESSAGE" value="Переделал модель бд, реализовал инфраструктуру с дб контекстом, сделал тетсовую реализацию чата через Signal R в application и прописываю APiю" />
   </component>
 </project>
